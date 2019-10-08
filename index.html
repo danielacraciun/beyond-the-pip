@@ -1,0 +1,360 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/night.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <style type="text/css">
+        .transbox {
+            background-color: rgba(100, 120, 100, 0.7);
+            border-radius: 30px;
+            text-align: center;
+            line-height: 250px;
+            color: white;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-background="files/mainbg.jpg">
+                <div class="transbox">
+                    <h1 class="mainhead"> Beyond </h1>
+                    <h2> the pip </h2>
+                </div>
+            </section>
+            <section>
+                <h3>Disclaimer: this is not about pip (in particular)</h3>
+                <aside class="notes">
+                    Hello everyone. I know what you’re thinking: I have something against pip, which is far from the truth.
+                    I have a problem with all package managers.
+                    Pip was only chosen here to represent them.
+                </aside>
+            </section>
+            <section>
+                <h2>Hi!</h2>
+                <h3 class="fragment" data-fragment-index="1">I'm Dana</h3>
+                <h3 class="fragment" data-fragment-index="2"><a href="https://github.com/danielacraciun">@danielacraciun</a></h3>
+                <aside class="notes">
+                    Let me introduce myself. I’m Daniela Craciun, and I’ve been working as a software engineer in Python-focused teams for a while now.
+                    One thing that bothers me is how quick requirements files get filled up with useless, use-it-and-forget-it libraries.
+                    The things I have seen, like having 3 logging helper libraries, used for the exact same thing, in 3 different places, have left me traumatized.
+                    Whenever I bring this up, usually people complain about "reinventing the wheel" and "hiding complexity" which reminds me of
+                </aside>
+            </section>
+            <section><img class="stretch" src="files/complex.png"></section>
+            <section>
+                <img class="stretch" src="files/complex2.png"> <br />
+                <a href="https://monkeyuser.com"><small>source: monkeyuser.com</small></a>
+            </section>
+            <section>
+                <h2>It's the year 2019</h2>
+                <h3>are we supposed to write our own code now??</h3>
+                <aside class="notes">
+                    But, I’m not trying to say you should never use other packages. My purpose is not to scare people off dependencies.
+                </aside>
+            </section>
+            <section>
+                <h1>NOPE.</h1>
+                <h3>BUT DOUBT. EVERYTHING.</h3>
+                <img class="stretch" src="files/doubtdog.jpg">
+
+                <aside class="notes">
+                    I aim to offer some sensible advice on how to use them & maybe think twice about the packages you use. DOUBT ALL OF THEM.
+                    I mean seriously, who hasn’t installed a library that seemed promising, started using it, and then slowly realized it’s not doing exactly what you wanted it to do?
+                    You either stop using it, or live long enough to slowly build all the code around it, patching things as you go. It becomes a hassle.
+                    Also, have you noticed how quick people are to just recommend adding a new library? I feel like this is the typical Stack Overflow experience.
+                </aside>
+            </section>
+            <section data-background="files/someme.png" data-background-position="center" data-background-size="65%"></section>
+            <section>
+                <h2>The good</h2>
+                <ul>
+                    <li class="fragment" data-fragment-index="1"> Multitude of libraries</li>
+                    <li class="fragment" data-fragment-index="2"> Ease of use</li>
+                    <li class="fragment" data-fragment-index="3"> Open source software <i class="em em-heart_eyes"></i></li>
+                </ul>
+                <aside class="notes">
+                    So, dependencies. The good, the bad and the ugly.
+
+                    With all of this said, the Python library ecosystem is quite awesome. The good part.
+                    A multitude of libraries, all at your fingertips, quite literally.
+                    It’s impossible to build something large scale without using other packages, and there are many that make my life easier on a daily basis.
+                    Most of the common pr
+                    oblems you might have while building something have already been solved. The are large libraries that gather a community around them, and I feel like collaboration is very much encouraged by the state of the community right now.
+                    I totally stand behind the idea of open source software and I recognize the benefits.
+                </aside>
+            </section>
+            <section>
+                <h2>The bad</h2>
+                <ul>
+                    <li class="fragment" data-fragment-index="1"> Poorly written & documented</li>
+                    <li class="fragment" data-fragment-index="2"> Not optimized</li>
+                    <li class="fragment" data-fragment-index="3"> Might go missing</li>
+                </ul>
+                <aside class="notes">
+                    But not all of the libraries are built equal.
+                    We need to remember that the people that are making these are developers (and humans!) just like us.
+                    They might have error-prone code running around there, poor documentation (which will leave you stumped whenever you have a bug relating to this particular library), optimization problems and other problems which will only occur after spending significant time integrating the library.
+                    This is more of a trust problem and how much of it are you willing to give to the developers. Mindless library use, combined with dynamic versioned dependencies in your requirements file can be a recipe for disaster. Deploys become nondeterministic, hard to revert and might be compromised in case of malicious activity.
+                    Libraries might also go missing. Remember the 2016 left-pad issue in the npm? When one developers was fighting with a company about a library with 11 lines of code he wrote, then took it down, and somehow broke the internet because there were so many larger libraries depending on it? Yeah.
+                </aside>
+            </section>
+            <section>
+                <h2>The ugly</h2>
+                <ul>
+                    <li class="fragment" data-fragment-index="1"> Security issues</li>
+                    <li class="fragment" data-fragment-index="2"> Malicious activity (typosquatting happening)</li>
+                    <li class="fragment" data-fragment-index="3"> Dependency hell <i class="em em-weary"></i></li>
+                </ul>
+                </textarea>
+                <aside class="notes">
+                    But beyond human error, things can go even worse. Security issues can creep up on you, since typosquatting has been happening again and again. PyPI does a really good job at handling this issues but some users have still been affected. Also you might get trapped in a dependency hell, out of which you’ll have to get out by using a lot of time and energy which could have been avoided in the first place.
+
+                    Okay, so up until now I mostly just complained. But what about solutions? I have some of those as well. But first, if there’s only one thing you remember after this presentation, let it be this 1 question: What is the coding time vs maintenance time on this piece of code?
+
+                    To expand a bit, this is about how much would it take you to roll out your own solution, or maintain something from a library you just found randomly. Also, I’m not saying to reinvent the wheel here. There are complex, widely trusted libraries you can’t just “code up” on the spot. Just that maybe padding a string with zeros shouldn’t require another dependency.
+                </aside>
+            </section>
+            <section>
+                <h2>Review time!</h2>
+                <h3><i class="em em-thinking_face"></i></h3>
+                <aside class="notes">
+                    All right, what’s an freely thinking, independent developer to do when they realize they need to make use of a library? Well, there are a few options.
+                    First things first, after finding the library you need to install, try to examine it. I see two potential things to consider whenever a new dependency is added:
+                    Things may break in an unpredictable way down, causing pain & suffering
+                    Just how painful will it get?
+                    It's easy to answer this after reviewing the library.
+                </aside>
+            </section>
+            <section>
+                <h3>Is the library...</h3>
+                <h5 class="fragment" data-fragment-index="1">mature?</h5>
+                <h5 class="fragment" data-fragment-index="2">used in commercial products?</h5>
+                <h5 class="fragment" data-fragment-index="3">backed up by other organizations?</h5>
+                <aside class="notes">
+                    Take a look at the dependency you’re about to introduce. Has it been around for several years, with a significant number of major releases? Is it used by commercial applications, and has support from one or more well-known organizations? If the answers to these questions is mostly positive, it would be safe to go ahead and assume this library won’t give you any troubles.
+                </aside>
+            </section>
+            <section>
+                <h3>Is the library...</h3>
+                <h5 class="fragment" data-fragment-index="1">used all through your project?</h5>
+                <h5 class="fragment" data-fragment-index="2">heavily relying on other libraries?</h5>
+                <aside class="notes">
+                    Then think about how you are using it. Is it used widely, or just in a few places? How easy would it be to remove from you codebase, if needed? Ideally, you wouldn’t need to do this, but it’s worth thinking about the effort it would entail. How big is the task you are using it for? Building a web application from scratch seems like not such a good idea, but when you need a quick helper class just rolling out your own might be a better option. How many dependencies does the library have? It it brings a horde of dependencies, you might want to consider skipping its usage.
+                </aside>
+            </section>
+            <section>
+                <h3>Improve the library <i class="em em-bulb"></i></h3>
+                <h3>Contribute to open source!</h3>
+                <aside class="notes">
+                    Finally, you could actually try using an open source library, find the pain points (poor documentation, not very well optimized, missing some functionalities), address them and contribute back to the community. It's a win-win!
+                </aside>
+            </section>
+            <section>
+                <h2>Selected a dependency?</h2>
+            </section>
+            <section>
+                <h2>Use a pattern...</h3>
+                    <h3>wrap it up! (the code, that is)</h3>
+                    <pre class="python"><code data-trim>from external_dependency import something
+
+class SomeExternalDependencyClient:
+    def __init__(self, credentials, name):
+        self.client = something.Client(credentials, name)
+
+    def get_items(self, ids):
+        self.client.get(ids)
+        
+    def send_items(self, item_list):
+        self.client.batch_insert(item_list)</code></pre>
+                    <aside class="notes">
+                        Adopting a pattern to mitigate damage is also a good solution. I’m talking here about the adapter pattern, which basically involves building a client that interacts with the library, acting as a wrapper.
+                        In this way, if something breaks, you only have to fix the piece of adapter code instead of going bug hunting and wasting time isolating the problem.
+                    </aside>
+            </section>
+            <section>
+                <h2>The standard library is awesome!</h3>
+                    <h4>Good resources</h4>
+                    <ul>
+                        <li> <a href="https://pymotw.com/3/">Module of the Week by Doug Hellmann</a></li>
+                        <li> <a href="https://dbader.org/">PyTricks by Dan Bader</a></li>
+                    </ul>
+                    <aside class="notes">
+                        And finally, last but not least, leveraging Python features should definitely on your mind. I feel like our first priority as developers should be having good knowledge of the language we are using, rather than resorting to a fast Google search to yield our answer. The Python standard library has many great features, and the documentation does a great job and explaining them. I also use some tools to refresh my memory on cool tricks python can do, like Module of the Week by Doug Hellmann or PyTricks by Dan Bader.
+
+                        There’s so many ways you can rely on Python to help you out...
+                    </aside>
+            </section>
+            <section>
+                <h3>You have <a href="https://dbader.org/blog/python-dunder-methods">magic methods</a>...</h3>
+                <pre class="python stretch"><code data-trim data-noescape>
+import hashlib
+
+class Hasher(object):
+    def __init__(self, algorithm):
+        self.algorithm = algorithm
+
+    def __call__(self, file):
+        hash = self.algorithm()
+        with open(file, 'rb') as f:
+            for chunk in iter(lambda: f.read(4096), ''):
+                hash.update(chunk)
+        return hash.hexdigest()
+
+md5 = Hasher(hashlib.md5)
+sha1 = Hasher(hashlib.sha1)
+md5(somefile)	
+						</code></pre>
+            </section>
+            <section>
+                <h3>Awesome <a href="https://realpython.com/primer-on-python-decorators/">decorators</a></h3>
+                <div>
+                    <pre class="python stretch"><code data-trim data-noescape>
+from functools import wraps
+
+def retry(count=5, exc_type=Exception):
+    def decorator(func):
+        @wraps(func)
+        def result(*args, **kwargs):
+            last_exc = None
+            for _ in range(count):
+                try:
+                    return func(*args, **kwargs)
+                except exc_type as e:
+                    last_exc = e
+            raise last_exc
+         return result
+     return decorator
+
+@retry
+def might_fail():
+    # some code here	
+						</code></pre>
+                </div>
+            </section>
+            <section>
+                <pre class="python stretch"><code data-trim>
+class Cache:
+    def __init__(self):
+        self.memo = {}
+
+    def store(self, fn):
+        def wrapper(*args):
+            if args not in self.memo:
+                self.memo[args] = fn(*args)
+            return self.memo[args]
+        return wrapper
+
+    def clear(self):
+        self.memo.clear()
+
+cache = Cache()
+
+@cache.store
+def somefct():
+    return expensive_call()
+
+cache.clear()</code></pre>
+                <h5>or, as of Python 3.4, use the built-in <a href="https://docs.python.org/3/library/functools.html#functools.lru_cache">@lru_cache</a></h5>
+            </section>
+            <section>
+                <h3>Powerful <a href="https://docs.python.org/2/library/collections.html">containers</a></h3>
+                <pre class="python"><code data-trim data-noescape>
+>>> from collections import Counter
+>>> colors = ['blue', 'red', 'blue', 'yellow', 'blue', 'red']
+>>> counter = Counter(colors)
+Counter({'blue': 3, 'red': 2, 'yellow': 1})
+>>> counter.most_common()[0][0]
+'blue'				
+						</code></pre>
+
+                <pre class="python"><code data-trim data-noescape>
+>>> Point = collections.namedtuple('Point', 'x y')
+>>> p = Point(1, y=2)
+Point(x=1, y=2)
+>>> p.x
+1
+>>> getattr(p, 'y')
+2
+>>> p._fields
+('x', 'y')			
+						</code></pre>
+            </section>
+            <section>
+                <h3>and so many MORE!</h3>
+                <h5><a href="https://pymotw.com/2/datetime/index.html">date & time handling</a> utilities</h5>
+                <h5>powerful <a href="https://docs.python.org/2.7/library/re.html">regex</a></h5>
+                <h5><a href="https://docs.python.org/2/library/os.html">os</a> specific operations</h5>
+                <h5>dev tools: <a href="https://docs.python.org/2.7/library/pydoc.html">pydoc</a>, <a href="https://docs.python.org/2/library/unittest.html">unittest</a>, <a href="https://docs.python.org/2.7/library/pdb.html">pdb</a></h5>
+            </section>
+            <section>
+                <h2><i class="em em-raised_hand_with_fingers_splayed"></i>
+                    <h2>
+                        <h3>I still think libraries are cool, okay?</h3>
+                        <aside class="notes">
+                            Of course, my code samples above are not exhaustive. In the end, I’m not dismissing packages and the hard work their creators have put in. I definitely appreciate having easy access to all kinds of libraries that make it easy for me to focus on building my projects rather than getting lost in the details. But sometimes getting too comfortable can and will cause headaches.
+                        </aside>
+            </section>
+            <section>This is it. Thank you! </section>
+        </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+        // More info about config & dependencies:
+        // - https://github.com/hakimel/reveal.js#configuration
+        // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+            dependencies: [{
+                    src: 'plugin/markdown/marked.js'
+                },
+                {
+                    src: 'plugin/markdown/markdown.js'
+                },
+                {
+                    src: 'plugin/notes/notes.js',
+                    async: true
+                },
+                {
+                    src: 'plugin/highlight/highlight.js',
+                    async: true,
+                    callback: function() {
+                        hljs.initHighlightingOnLoad();
+                    }
+                },
+                {
+                    src: 'plugin/zoom-js/zoom.js',
+                    async: true
+                }
+            ],
+            controls: false,
+            defaultTiming: 28,
+            zoomKey: 'shift'
+        });
+    </script>
+</body>
+
+</html>
